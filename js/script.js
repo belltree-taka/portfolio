@@ -1,99 +1,76 @@
 // JavaScript Document
-$(function(){
+$(function(){	
 	/*
 	Hamburger Icon Effect
 	*/
-	$HamburgerIconContainer = $('.HamburgerIconContainer');
-	$HamburgerIconContainer.on('click',function(){
+	var $Hamburger = $('.HamburgerIcon'),
+		$FloatMenuButton = $('.FloatMenuButton'),
+		$Overlay = $('.global-nav-sp'),
+		$HamburgerLines = $('.HamburgerIcon__line');
+
+		$Hamburger.on('click',function(){
 		scrollPosition = $(window).scrollTop();
-		$('body').addClass('fixed').css({'top':-scrollPosition});
-		$HamburgerIconContainer.toggleClass('open');
-		if($HamburgerIconContainer.hasClass('open')){
-			$(this).find('.HamburgerIcon__line1')
-		.css({
-			'position':'absolute',
-			'top':'50%',
-			'left':'50%',
-			'transform':'translate(-50%,-50%) rotate(45deg)',
-			'border':'1.5px solid #fff',
-			'z-index':1
-		});
-		$(this).find('.HamburgerIcon__line2')
-		.css({
-			'position':'absolute',
-			'top':'50%',
-			'left':'50%',
-			'transform':'translate(-50%,-50%)',
-			'opacity': 0,
-			'border':'1.5px solid #fff',
-			'z-index':2
-		});
-		$(this).find('.HamburgerIcon__line3')
-		.css({
-			'position':'absolute',
-			'top':'50%',
-			'left':'50%',
-			'transform':'translate(-50%,-50%) rotate(-45deg)',
-			'border':'1.5px solid #fff',
-			'z-index':3
-		});
-		$('.global-nav-sp').stop(true).fadeIn(800);
+		$Overlay.toggleClass('open');
+		if($Overlay.hasClass('open')){
+			$Overlay.stop(true).fadeIn(500);
+			$('body').addClass('ScrollLock').css({'top':-scrollPosition});
+			$HamburgerLines.css({'background-color':'#fff'});
+			$FloatMenuButton
+			.css({
+				'background-color': '#fff',
+				'color': '#575757',
+				'background-image': 'url(../images/hamburger-black.svg)'
+			})
+			.text('Close');
 		}else{
-			$('body').removeClass('fixed');
-			$(this).find('.HamburgerIcon__line1')
-		.css({
-			'position':'static',
-			'transform':'',
-			'border':'1.5px solid rgba(0, 0, 0, 0.6)',
-			'z-index':1
-		});
-		$(this).find('.HamburgerIcon__line2')
-		.css({
-			'position':'static',
-			'transform':'',
-			'opacity': '1',
-			'border':'1.5px solid rgba(0, 0, 0, 0.6)',
-			'z-index':2
-		});
-		$(this).find('.HamburgerIcon__line3')
-		.css({
-			'position':'static',
-			'transform':'',
-			'border':'1.5px solid rgba(0, 0, 0, 0.6)',
-			'z-index':3
-		});
-		$('.global-nav-sp').stop(true).fadeOut(800);
+			$Overlay.stop(true).fadeOut(500);
+			$('body').removeClass('ScrollLock');
+			$(window).scrollTop(scrollPosition);
+			$HamburgerLines.css({'background-color':'#575757'});
+			$FloatMenuButton
+			.css({
+				'background-color': '',
+				'color': '#fff',
+				'background-image': 'url(../images/hamburger.svg)'
+			})
+			.text('Menu');
 		}
 	});
 	/*
-	Global Nav SP Menu Jump
+	FloatMenuButton
 	*/
-	$('.nav-item-sp').on('click',function(){
-		$('.global-nav-sp').fadeOut(1000);
-		$HamburgerIconContainer.find('.HamburgerIcon__line1')
-		.css({
-			'position':'static',
-			'transform':'',
-			'border':'1.5px solid rgba(0, 0, 0, 0.6)',
-			'z-index':1
-		});
-		$HamburgerIconContainer.find('.HamburgerIcon__line2')
-		.css({
-			'position':'static',
-			'transform':'',
-			'opacity': '1',
-			'border':'1.5px solid rgba(0, 0, 0, 0.6)',
-			'z-index':2
-		});
-		$HamburgerIconContainer.find('.HamburgerIcon__line3')
-		.css({
-			'position':'static',
-			'transform':'',
-			'border':'1.5px solid rgba(0, 0, 0, 0.6)',
-			'z-index':3
-		});
-		$('body').removeClass('fixed');
+		$FloatMenuButton.on('click',function(){
+		scrollPosition = $(window).scrollTop();
+		$Overlay.toggleClass('open');
+		if($Overlay.hasClass('open')){
+			$Overlay.stop(true).fadeIn(500);
+			$('body').addClass('ScrollLock').css({'top':-scrollPosition});
+			$HamburgerLines.css({'background-color':'#fff'});
+			$FloatMenuButton
+			.css({
+				'background-color': '#fff',
+				'color': '#575757',
+				'background-image': 'url(../images/hamburger-black.svg)'
+			})
+			.text('Close');
+		}else{
+			$Overlay.stop(true).fadeOut(500);
+			$('body').removeClass('ScrollLock');
+			$(window).scrollTop(scrollPosition);
+			$HamburgerLines.css({'background-color':'#575757'});
+			$FloatMenuButton
+			.css({
+				'background-color': '',
+				'color': '#fff',
+				'background-image': 'url(../images/hamburger.svg)'
+			})
+			.text('Menu');
+		}
 	});
+
+
+
+
 	/*
 	Global Nav SP Overlay disapears when the window is wider than 768px
 	*/
