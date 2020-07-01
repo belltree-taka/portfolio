@@ -18,9 +18,9 @@ $(function(){
 			$FloatMenuButton
 			.css({
 				'background-color': '#fff',
-				'color': '#575757',
-				'background-image': 'url(../images/close.png)'
+				'color': '#575757'				
 			})
+			.addClass('FloatCloseButton')
 			.text('Close');
 		}else{
 			$Overlay.stop(true).fadeOut(500);
@@ -30,9 +30,9 @@ $(function(){
 			$FloatMenuButton
 			.css({
 				'background-color': '',
-				'color': '#fff',
-				'background-image': 'url(../images/hamburger.png)'
+				'color': '#fff'				
 			})
+			.removeClass('FloatCloseButton')
 			.text('Menu');
 		}
 	});
@@ -49,9 +49,9 @@ $(function(){
 			$FloatMenuButton
 			.css({
 				'background-color': '#fff',
-				'color': '#575757',
-				'background-image': 'url(../images/close.png)'
+				'color': '#575757'
 			})
+			.addClass('FloatCloseButton')
 			.text('Close');
 		}else{
 			$Overlay.stop(true).fadeOut(500);
@@ -61,9 +61,9 @@ $(function(){
 			$FloatMenuButton
 			.css({
 				'background-color': '',
-				'color': '#fff',
-				'background-image': 'url(../images/hamburger.png)'
+				'color': '#fff'
 			})
+			.removeClass('FloatCloseButton')
 			.text('Menu');
 		}
 	});

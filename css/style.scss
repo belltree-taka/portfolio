@@ -115,6 +115,14 @@ section{
 	cursor: pointer;
 	outline: none;
 }
+.FloatCloseButton{
+	color: $KeyFontColor;
+	background-color: #fff;
+	background-image: url('../images/close.png');
+	background-repeat: no-repeat;
+	background-position: left 19% center;
+}
+
 /* --------------------------------
  * global-nav-sp(overlay)
  * -------------------------------- */
