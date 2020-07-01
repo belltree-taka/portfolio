@@ -116,7 +116,7 @@ section {
   line-height: 20px;
   border-radius: 13px;
   background-color: rgba(0, 0, 0, 0.5);
-  background-image: url(../images/hamburger.png);
+  background-image: url("../images/hamburger.png");
   background-repeat: no-repeat;
   background-position: left 12% center;
   position: fixed;
