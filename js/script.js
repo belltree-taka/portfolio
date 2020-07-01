@@ -19,7 +19,7 @@ $(function(){
 			.css({
 				'background-color': '#fff',
 				'color': '#575757',
-				'background-image': 'url(../images/close.png)'
+				'background-image': "url('../images/close.png')"
 			})
 			.text('Close');
 		}else{
@@ -31,7 +31,7 @@ $(function(){
 			.css({
 				'background-color': '',
 				'color': '#fff',
-				'background-image': 'url(../images/hamburger.png)'
+				'background-image': "url('../images/hamburger.png')"
 			})
 			.text('Menu');
 		}
@@ -50,7 +50,7 @@ $(function(){
 			.css({
 				'background-color': '#fff',
 				'color': '#575757',
-				'background-image': 'url(../images/close.png)'
+				'background-image': "url('../images/close.png')"
 			})
 			.text('Close');
 		}else{
@@ -62,7 +62,7 @@ $(function(){
 			.css({
 				'background-color': '',
 				'color': '#fff',
-				'background-image': 'url(../images/hamburger.png)'
+				'background-image': "url('../images/hamburger.png')"
 			})
 			.text('Menu');
 		}
