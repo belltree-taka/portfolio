@@ -5,16 +5,16 @@ $(function(){
 	*/
 	var $Hamburger = $('.HamburgerIcon'),
 		$FloatMenuButton = $('.FloatMenuButton'),
-		$Overlay = $('.global-nav-sp'),
-		$HamburgerLines = $('.HamburgerIcon__line');
+		$Overlay = $('.global-nav-sp');
+		
 
 		$Hamburger.on('click',function(){
 		scrollPosition = $(window).scrollTop();
+		
 		$Overlay.toggleClass('open');
 		if($Overlay.hasClass('open')){
 			$Overlay.stop(true).fadeIn(500);
 			$('body').addClass('ScrollLock').css({'top':-scrollPosition});
-			$HamburgerLines.css({'background-color':'#fff'});
 			$FloatMenuButton
 			.css({
 				'background-color': '#fff',
@@ -26,7 +26,6 @@ $(function(){
 			$Overlay.stop(true).fadeOut(500);
 			$('body').removeClass('ScrollLock');
 			$(window).scrollTop(scrollPosition);
-			$HamburgerLines.css({'background-color':'#575757'});
 			$FloatMenuButton
 			.css({
 				'background-color': '',
@@ -35,6 +34,7 @@ $(function(){
 			.removeClass('FloatCloseButton')
 			.text('Menu');
 		}
+		$(this).toggleClass('clicked');
 	});
 	/*
 	FloatMenuButton
@@ -45,7 +45,6 @@ $(function(){
 		if($Overlay.hasClass('open')){
 			$Overlay.stop(true).fadeIn(500);
 			$('body').addClass('ScrollLock').css({'top':-scrollPosition});
-			$HamburgerLines.css({'background-color':'#fff'});
 			$FloatMenuButton
 			.css({
 				'background-color': '#fff',
@@ -53,11 +52,11 @@ $(function(){
 			})
 			.addClass('FloatCloseButton')
 			.text('Close');
+			$Hamburger.addClass('clicked');
 		}else{
 			$Overlay.stop(true).fadeOut(500);
 			$('body').removeClass('ScrollLock');
 			$(window).scrollTop(scrollPosition);
-			$HamburgerLines.css({'background-color':'#575757'});
 			$FloatMenuButton
 			.css({
 				'background-color': '',
@@ -65,40 +64,7 @@ $(function(){
 			})
 			.removeClass('FloatCloseButton')
 			.text('Menu');
-		}
-	});
-	/*
-	Global Nav SP Overlay disapears when the window is wider than 768px
-	*/
-	$(window).resize(function(){
-		var w = $(window).innerWidth();
-		var x = 768;
-		if(w <= x){
-		$HamburgerIconContainer.find('.HamburgerIcon__line1')
-		.css({
-		'position':'static',
-		'transform':'',
-		'border':'1.5px solid rgba(0, 0, 0, 0.6)',
-		'z-index':1
-		});
-		$HamburgerIconContainer.find('.HamburgerIcon__line2')
-		.css({
-		'position':'static',
-		'transform':'',
-		'opacity': '1',
-		'border':'1.5px solid rgba(0, 0, 0, 0.6)',
-		'z-index':2
-		});
-		$HamburgerIconContainer.find('.HamburgerIcon__line3')
-		.css({
-		'position':'static',
-		'transform':'',
-		'border':'1.5px solid rgba(0, 0, 0, 0.6)',
-		'z-index':3
-		});
-		}else{
-		$HamburgerIconContainer.fadeOut(800);
-		$('.global-nav-sp').fadeOut(800);
+			$Hamburger.removeClass('clicked');
 		}
 	});
 	/*
@@ -110,6 +76,27 @@ $(function(){
 		$('html, body').animate({
 			'scrollTop': position
 		},1000);
+	});
+	/*
+	Global Nav Sp Menu Jump
+	*/
+	$('.nav-item-sp').find('a').on('click',function(){
+		var id = $(this).attr('href'),
+			position = $(id).offset().top
+		$('html, body').animate({
+			'scrollTop': position
+		},1000);
+		$Overlay.fadeOut(1500);
+		$Overlay.removeClass('open');
+		$('body').removeClass('ScrollLock');
+		$Hamburger.removeClass('clicked');
+		$FloatMenuButton
+			.css({
+				'background-color': '',
+				'color': '#fff'				
+			})
+			.removeClass('FloatCloseButton')
+			.text('Menu');
 	});
 	/*
 	Back To Top
@@ -125,14 +112,44 @@ $(function(){
 	$('.back-to-top-icon').each(function(){
 		var $window = $(window),
 			$BackToTopIcon = $(this),
-			$GlobalNav = $('.global-nav'),
-			GlobalNavOffsetTop = $GlobalNav.offset().top;
+			$About = $('.about'),
+			AboutOffsetTop = $About.offset().top;
 		
 		$window.on('scroll',function(){
-			if($window.scrollTop() > GlobalNavOffsetTop){
+			if($window.scrollTop() > AboutOffsetTop){
 				$BackToTopIcon.css('display','block');
 			}else{
 				$BackToTopIcon.css('display','none');
+			}
+		});
+		$window.trigger('scroll');
+	});
+	/*
+	Float Menu Button Appearance
+	*/
+	$('.FloatMenuButton').each(function(){
+		var $window = $(window),
+			w = $(window).innerWidth(),
+			x = 768,
+			$FloatMenuButton = $(this),
+			$FloatCloseButton = $('.FloatCloseButton'),
+			$About = $('.about'),
+			AboutOffsetTop = $About.offset().top;
+		
+		$window.on('scroll',function(){
+			if( w <= x && $window.scrollTop() > AboutOffsetTop){
+				$FloatMenuButton.css('display','block');
+			}else{
+				$FloatMenuButton.css('display','none');
+				$FloatCloseButton.css('display','none');
+			}
+		});
+		$window.on('scroll',function(){
+			if( w <= x && $window.scrollTop() > AboutOffsetTop){
+				$FloatMenuButton.css('display','block');
+			}else{
+				$FloatMenuButton.css('display','none');
+				$FloatCloseButton.css('display','none');
 			}
 		});
 		$window.trigger('scroll');

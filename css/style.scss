@@ -96,7 +96,7 @@ section{
 }
 .FloatMenuButton{
 	color: #fff;
-	display: block;
+	display: none;
 	width: 70px;
 	height: 25px;
 	padding-left: 22px;
@@ -107,22 +107,22 @@ section{
 	background-repeat: no-repeat;
 	background-position: left 12% center;
 	position: fixed;
-	bottom: 50px;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	bottom: 60px;
+	left: -150%;
+	transform: translateX(-50%);
 	z-index: 500;
 	border: none;
 	cursor: pointer;
 	outline: none;
 }
 .FloatCloseButton{
+	display: none;
 	color: $KeyFontColor;
 	background-color: #fff;
 	background-image: url('../images/close.png');
 	background-repeat: no-repeat;
 	background-position: left 19% center;
 }
-
 /* --------------------------------
  * global-nav-sp(overlay)
  * -------------------------------- */
@@ -201,6 +201,7 @@ section{
  * HamburgerIcon
  * -------------------------------- */
  .HamburgerIcon{
+	display: none;
 	position: absolute;
 	width: 45px;
 	top: 20px;
@@ -215,7 +216,8 @@ section{
 		width: 35px;
 		height: 3px;
 		background-color: $KeyFontColor;
-		margin-bottom: 9px;		
+		margin-bottom: 9px;
+		transition: background-color 1s ease;		
 		&:first-of-type{
 			width: 45px;
 		}
@@ -227,10 +229,29 @@ section{
 			margin-bottom: 0;
 		}
 	}
+	&.clicked{
+		& .HamburgerIcon__line{
+			background-color: #fff;
+			transition: all 0.3s ease;
+			&:first-of-type{
+				width: 35px;
+				transform: translateY(12px) rotate(135deg);
+			}
+			&:nth-of-type(2){
+				transform: translateX(-18px) scaleX(0);
+
+			}
+			&:nth-of-type(3){
+				width: 35px;
+				transform: translateY(-12px) rotate(-135deg);
+			}
+		}
+	}
  }
  .ScrollLock {
 	overflow: hidden;
 }
+
 
 /* --------------------------------
  * global-nav
@@ -580,9 +601,16 @@ section{
 	.back-to-top-icon{
 		font-size: 5rem;
 	}
+	.FloatMenuButton{
+		display: block;
+		left: 50%;
+	}
+	.FloatCloseButton{
+		display: block;
+	}
 	.header{
-		height: 50vh;
-		padding-top: 25vh;
+		height: 100vh;
+		padding-top: 50vh;
 		.HamburgerIcon{
 			display: block;
 		}
