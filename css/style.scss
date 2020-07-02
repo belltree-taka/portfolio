@@ -400,12 +400,13 @@ section{
 		.works-name{
 			color: $KeyFontColor;
 			margin: 10px 0 5px;
-			font-size: $MediumFontSize;
+			font-size: $LargeFontSize;
 		}
 		.works-type{
 			color: $KeyFontColor;
 			margin-bottom: 5px;
-			font-size: $SmallFontSize;
+			font-size: $MediumFontSize;
+			padding: 0 10px;
 		}
 		.works-detail{
 			color: $BasicFontColor;
@@ -630,6 +631,7 @@ section{
 @media (max-width: 1024px){
 	.works-container{
 		.works-item{
+			width: 49%;
 			&::before{
 				display: none;
 			}

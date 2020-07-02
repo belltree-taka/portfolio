@@ -588,13 +588,14 @@ section {
 .works-container .works-item .works-name {
   color: #575757;
   margin: 10px 0 5px;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .works-container .works-item .works-type {
   color: #575757;
   margin-bottom: 5px;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  padding: 0 10px;
 }
 
 .works-container .works-item .works-detail {
@@ -888,6 +889,9 @@ section {
  * Responsive CSS (max-width: 1024px)
  * -------------------------------- */
 @media (max-width: 1024px) {
+  .works-container .works-item {
+    width: 49%;
+  }
   .works-container .works-item::before {
     display: none;
   }
