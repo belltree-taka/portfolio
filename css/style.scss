@@ -625,7 +625,32 @@ section{
 	}
 }
 /* --------------------------------
- * Responsive CSS
+ * Responsive CSS (max-width: 1024px)
+ * -------------------------------- */
+@media (max-width: 1024px){
+	.works-container{
+		.works-item{
+			&::before{
+				display: none;
+			}
+			&:hover::before{
+				display: none;
+			}
+			&::after{
+				display: none;
+			}
+			&:hover::after{
+				display: none;
+			}
+			&:hover{
+				transform: none;
+				opacity: 0.8;
+			}
+		}
+	}
+}
+/* --------------------------------
+ * Responsive CSS (max-width: 768px)
  * -------------------------------- */
 @media (max-width: 768px){
 	.text-bold{
@@ -673,22 +698,6 @@ section{
 		.works-item{
 			margin: 0 auto 50px;
 			width: 100%;
-			&::before{
-				display: none;
-			}
-			&:hover::before{
-				display: none;
-			}
-			&::after{
-				display: none;
-			}
-			&:hover::after{
-				display: none;
-			}
-			&:hover{
-				transform: none;
-				opacity: 0.8;
-			}
 		}
 	}
 	.about-container{

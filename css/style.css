@@ -885,7 +885,30 @@ section {
 }
 
 /* --------------------------------
- * Responsive CSS
+ * Responsive CSS (max-width: 1024px)
+ * -------------------------------- */
+@media (max-width: 1024px) {
+  .works-container .works-item::before {
+    display: none;
+  }
+  .works-container .works-item:hover::before {
+    display: none;
+  }
+  .works-container .works-item::after {
+    display: none;
+  }
+  .works-container .works-item:hover::after {
+    display: none;
+  }
+  .works-container .works-item:hover {
+    -webkit-transform: none;
+            transform: none;
+    opacity: 0.8;
+  }
+}
+
+/* --------------------------------
+ * Responsive CSS (max-width: 768px)
  * -------------------------------- */
 @media (max-width: 768px) {
   .text-bold {
@@ -932,23 +955,6 @@ section {
   .works-container .works-item {
     margin: 0 auto 50px;
     width: 100%;
-  }
-  .works-container .works-item::before {
-    display: none;
-  }
-  .works-container .works-item:hover::before {
-    display: none;
-  }
-  .works-container .works-item::after {
-    display: none;
-  }
-  .works-container .works-item:hover::after {
-    display: none;
-  }
-  .works-container .works-item:hover {
-    -webkit-transform: none;
-            transform: none;
-    opacity: 0.8;
   }
   .about-container .description {
     font-size: 1.5rem;
