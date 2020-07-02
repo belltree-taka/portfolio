@@ -76,12 +76,12 @@ section{
 	margin: 5px 0 15px;
 }
 .ScrollSign{
-	display: block;
+	display: none;
 	text-align: center;
-	margin: 100px auto 0;
+	margin: 150px auto 0;
 	line-height: 130px;
 	font-size: 1.5rem;
-	color: $KeyFontColor;
+	color: #fff;
 	position: relative;
 	& span{
 		position: absolute;
@@ -90,9 +90,8 @@ section{
 		width: 30px;
 		height: 50px;
 		margin-left: -15px;
-		border: 2px solid $KeyFontColor;
+		border: 2px solid #fff;
 		border-radius: 50px;
-		box-sizing: border-box;
 		&::before{
 			position: absolute;
 			top: 10px;
@@ -101,10 +100,9 @@ section{
 			width: 6px;
 			height: 6px;
 			margin-left: -3px;
-			background-color: $KeyFontColor;
+			background-color: #fff;
 			border-radius: 100%;
 			animation: mousewheel 2s infinite;
-			box-sizing: border-box;
 			@keyframes mousewheel {
 				0% {
 				  transform: translate(0, 0);
@@ -223,7 +221,7 @@ section{
 	padding-top: 40vh;
 	background: linear-gradient(45deg, #6cb8ff, #fff66c, #ffa36c);
 	background-size: 600% 600%;
-	animation: GradationAnimation 15s ease infinite;
+	animation: GradationAnimation 5s ease infinite;
 	@keyframes GradationAnimation {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
@@ -646,6 +644,9 @@ section{
 	}
 	.description{
 		font-size: $MediumFontSize;
+	}
+	.ScrollSign{
+		display: block;
 	}
 	.back-to-top-icon{
 		font-size: 5rem;
