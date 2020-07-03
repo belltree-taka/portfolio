@@ -67,6 +67,7 @@ section{
 }
 .description{
 			color: $BasicFontColor;
+			letter-spacing: 1.5px;
 			line-height: 1.5;
 }
 .text-bold{
@@ -471,34 +472,40 @@ section{
 	justify-content: space-between;
 	max-width: 1500px;
 	.feature-image{
-		width: 50%;
+		width: 48%;
 		img{
 			width: 100%;
+			box-shadow:  10px 10px 15px #a9a9a9;
+			border: 1px solid #a9a9a9;
 		}
 	}
 	.feature-item{
-		width: 50%;
-		padding: 5px 20px;
+		width: 48%;
+		padding: 5px 0;
 		.website-name{
 			width: 100%;
-			font-size: 1.2rem;
+			font-size: 1.5rem;
 			color: $BasicFontColor;
 			margin-bottom: 5px;
 		}
 		.website-url{
+			display: block;
 			width: 100%;
 			color: $UrlFontColor;
 			font-size: $SmallFontSize;
-			margin-bottom: 10px;
+			margin-bottom: 20px;
 		}
 		.responsibility{
 			width: 100%;
 			font-size: $MediumFontSize;
 			color: $BasicFontColor;
-			margin-bottom: 5px;
+			margin-bottom: 20px;
 		}
 		.description{
 			font-size: $MediumFontSize;
+			&:first-of-type{
+				margin-bottom: 10px;
+			}
 		}
 	}
 }
@@ -538,22 +545,30 @@ section{
 				padding: 0 10px;
 			}
 		}
-		&:nth-of-type(1)>i{
+		&:nth-of-type(1)>.skills-icon{
 			@include SkillsIconStyle;
 			color: #FF8000;
 		}
-		&:nth-of-type(2)>i{
+		&:nth-of-type(2)>.skills-icon{
 			@include SkillsIconStyle;
 			color: #0063FF;
 		}
-		&:nth-of-type(3)>i{
+		&:nth-of-type(3)>.skills-icon{
 			@include SkillsIconStyle;
 			color: #FFBE01;
 		}
-		&:nth-of-type(4)>i{
+		&:nth-of-type(4)>.skills-icon{
 			@include SkillsIconStyle;
 			color: #FB52AC;
 		}
+		&:nth-of-type(5)>.skills-icon{
+			display: block;
+			margin: auto;			
+		}
+		&:nth-of-type(6)>.skills-icon{
+			display: block;
+			margin: auto;			
+		}		
 		&:nth-of-type(1) .skills-rating::before{
 			content: '★★★★★';
 			@include SkillRatingStyle;
@@ -567,7 +582,15 @@ section{
 			@include SkillRatingStyle;
 		}
 		&:nth-of-type(4) .skills-rating::before{
+			content: '★★★★';
+			@include SkillRatingStyle;
+		}
+		&:nth-of-type(5) .skills-rating::before{
 			content: '★★★';
+			@include SkillRatingStyle;
+		}
+		&:nth-of-type(6) .skills-rating::before{
+			content: '★★★★★';
 			@include SkillRatingStyle;
 		}
 	}
@@ -648,6 +671,11 @@ section{
 				transform: none;
 				opacity: 0.8;
 			}
+		}
+	}
+	.skills-container{
+		.skills-item{
+			width: 50%;
 		}
 	}
 }
