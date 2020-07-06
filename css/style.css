@@ -212,7 +212,7 @@ section {
   display: none;
   color: #575757;
   background-color: #fff;
-  background-image: url("../images/close.png");
+  background-image: url("../images/close-overlay.png");
   background-repeat: no-repeat;
   background-position: left 19% center;
 }
@@ -586,7 +586,7 @@ section {
   transition: transform 0.5s ease, -webkit-transform 0.5s ease;
 }
 
-.works-container .works-item img {
+.works-container .works-item .works-image {
   width: 100%;
 }
 
