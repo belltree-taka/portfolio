@@ -404,12 +404,12 @@ section{
 		}
 		.works-name{
 			color: $KeyFontColor;
-			margin: 10px 0 5px;
+			margin: 10px 0;
 			font-size: $LargeFontSize;
 		}
 		.works-type{
 			color: $KeyFontColor;
-			margin-bottom: 5px;
+			margin-bottom: 10px;
 			font-size: $MediumFontSize;
 			padding: 0 10px;
 		}
@@ -419,6 +419,7 @@ section{
 			padding: 0 10px;
 			margin-bottom: 20px;
 			font-size: $SmallFontSize;
+			line-height: 1.5;
 		}
 		&:hover{
 		transform: translateY(-10px);
@@ -525,6 +526,7 @@ section{
 			font-size: $MediumFontSize;
 			color: $BasicFontColor;
 			margin-bottom: 20px;
+			line-height: 1.5;
 		}
 		.description{
 			font-size: $MediumFontSize;
