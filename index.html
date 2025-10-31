@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Takaharu Suzuki">
+    <meta name="description" content="Online marketplace where independent artisans showcase and sell their handmade creations.">
+    <title>Maker's Market Dashboard</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body class="bg-slate-50 tracking-wide font-sans md:grid grid-cols-12 gap-4 2xl:max-w-[1800px] mx-auto">
+    <header class="bg-slate-800 px-4 pt-4 md:col-span-3 xl:col-span-2">
+        <section class="flex flex-wrap justify-between items-center">
+            <div>
+                <a class="block focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-lime-500 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-800 rounded" href="index.html">
+                    <h1 class="font-serif text-slate-50 text-2xl font-extrabold uppercase">Maker's Market</h1>
+                </a>
+            </div>
+            <button id="menu-toggle-btn" class="text-slate-50 text-xs border rounded-sm cursor-pointer p-2 text-center w-[14mm] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-lime-500 focus-visible:ring-offset-slate-800 hover:bg-slate-900 md:hidden" aria-controls="top-level-nav" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" focusable="false">
+                    <title>Main Menu</title>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                menu
+            </button>
+            <!--
+                JS toggles max-h-[40rem]. When viewport width reaches 888px, overflow hidden and max-h-0 get unset so the navigation shows up on the screen.
+                -mx-4 and w-[calc(100%+2rem)] let list items take the whole viewport width without being constrained by header's px-4 
+            -->
+            <nav id="top-level-nav" class="mt-4 max-h-0 -mx-4 w-[calc(100%+2rem)] overflow-hidden transition-all duration-300 md:overflow-[unset] md:max-h-[unset]">
+                <ul>
+                    <!-- Using outline for focus-visible instead of ring because each list item spans the full width, and the ring effect cannot render inward. If ring were used, only the top and bottom edges of the focus state would appear, with no visible lines on the sides. -->
+                    <li class="border-y border-slate-50"><a class="text-slate-50 hover:bg-slate-900 block text-center py-3 md:text-left md:px-4 focus-visible:outline-4 focus-visible:outline-lime-500 focus-visible:-outline-offset-4" href="#">Dashboard</a></li>
+                    <li class="border-b border-slate-50"><a class="text-slate-50 hover:bg-slate-900 block text-center py-3 md:text-left md:px-4 focus-visible:outline-4 focus-visible:outline-lime-500 focus-visible:-outline-offset-4" href="#">Messages</a></li>
+                    <li class="border-b border-slate-50"><a class="text-slate-50 hover:bg-slate-900 block text-center py-3 md:text-left md:px-4 focus-visible:outline-4 focus-visible:outline-lime-500 focus-visible:-outline-offset-4" href="#">My Listings</a></li>
+                    <li class="border-b border-slate-50"><a class="text-slate-50 hover:bg-slate-900 block text-center py-3 md:text-left md:px-4 focus-visible:outline-4 focus-visible:outline-lime-500 focus-visible:-outline-offset-4" href="#">Orders & Delivery</a></li>
+                    <li class="border-b border-slate-50"><a class="text-slate-50 hover:bg-slate-900 block text-center py-3 md:text-left md:px-4 focus-visible:outline-4 focus-visible:outline-lime-500 focus-visible:-outline-offset-4" href="#">Finances</a></li>
+                    <li class="border-b border-slate-50"><a class="text-slate-50 hover:bg-slate-900 block text-center py-3 md:text-left md:px-4 focus-visible:outline-4 focus-visible:outline-lime-500 focus-visible:-outline-offset-4" href="#">Analytics</a></li>
+                    <li class="border-b border-slate-50"><a class="text-slate-50 hover:bg-slate-900 block text-center py-3 md:text-left md:px-4 focus-visible:outline-4 focus-visible:outline-lime-500 focus-visible:-outline-offset-4" href="#">Settings</a></li>
+                    <li class="border-b border-slate-50"><a class="text-slate-50 hover:bg-slate-900 block text-center py-3 md:text-left md:px-4 focus-visible:outline-4 focus-visible:outline-lime-500 focus-visible:-outline-offset-4" href="#">Help Centre</a></li>
+                    <li><a class="text-slate-50 hover:text-slate-50 hover:bg-slate-900 block text-center py-3 md:text-left md:px-4 md:border-b focus-visible:outline-4 focus-visible:outline-lime-500 focus-visible:-outline-offset-4" href="#">Sign Out</a></li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <main class="flex flex-col gap-8 px-4 py-8 text-slate-950 md:col-span-9 xl:col-span-10">
+        <div>
+            <p class="text-2xl font-medium">Welcome back, Clayton!</p>
+            <p>You have <span class="text-2xl font-black">3</span> new messages.</p>
+        </div>
+        <section class="mb-8 md:border md:border-slate-600 md:rounded-lg md:px-4 md:py-8 md:shadow-lg">
+            <h2 class="text-4xl font-medium mb-4 uppercase">Quick Actions</h2>
+            <div class="flex gap-4 flex-wrap">
+                <a class="w-full flex items-center gap-2 border border-l-8 border-slate-600 px-4 py-4 rounded shadow-lg focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-lime-500 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-50 sm:w-[calc(50%-0.5rem)] xl:w-[calc(33%-0.66rem)] hover:bg-slate-100" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="prefix__size-6 w-8">
+                        <title>New Listing Icon</title>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 10.5v6m3-3H9m4.06-7.19-2.12-2.12a1.5 1.5 0 0 0-1.06-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.38a1.5 1.5 0 0 1-1.06-.44"/>
+                    </svg>
+                    Add New Listing
+                </a>
+                <a class="w-full flex items-center gap-2 border border-l-8 border-slate-600 px-4 py-4 rounded shadow-lg focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-lime-500 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-50 sm:w-[calc(50%-0.5rem)] xl:w-[calc(33%-0.66rem)] hover:bg-slate-100" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="prefix__size-6 w-8">
+                        <title>Shop Icon</title>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.35M3.75 21V9.35m0 0a3 3 0 0 0 3.75-.62 3 3 0 0 0 2.25 1.02A3 3 0 0 0 12 8.73a3 3 0 0 0 2.25 1.02 3 3 0 0 0 2.25-1.01 3 3 0 0 0 3.75.6m-16.5 0a3 3 0 0 1-.62-4.71l1.19-1.2A1.5 1.5 0 0 1 5.38 3h13.24a1.5 1.5 0 0 1 1.06.44l1.2 1.19a3 3 0 0 1-.63 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .41.34.75.75.75"/>
+                    </svg>
+                    View Shop
+                </a>
+                <a class="w-full flex items-center gap-2 border border-l-8 border-slate-600 px-4 py-4 rounded shadow-lg focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-lime-500 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-50 sm:w-[calc(50%-0.5rem)] xl:w-[calc(33%-0.66rem)] hover:bg-slate-100" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="prefix__size-6 w-8">
+                        <title>Inbox Icon</title>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 3.75H6.91a2.25 2.25 0 0 0-2.15 1.59l-2.41 7.84a2 2 0 0 0-.1.66V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.16q0-.35-.1-.66l-2.41-7.84a2.25 2.25 0 0 0-2.15-1.59H15M2.25 13.5h3.86a2.3 2.3 0 0 1 2.01 1.24l.26.52a2.3 2.3 0 0 0 2.01 1.24h3.22a2.3 2.3 0 0 0 2.01-1.24l.26-.52a2.3 2.3 0 0 1 2.01-1.24h3.86M12 3v8.25m0 0-3-3m3 3 3-3"/>
+                    </svg>
+                    View Inbox
+                </a>
+                <a class="w-full flex items-center gap-2 border border-l-8 border-slate-600 px-4 py-4 rounded shadow-lg focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-lime-500 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-50 sm:w-[calc(50%-0.5rem)] xl:w-[calc(33%-0.66rem)] hover:bg-slate-100" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="prefix__size-6 w-8">
+                        <title>Cash Icon</title>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60 60 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m3 0h.008v.008H18zm-12 0h.008v.008H6z"/>
+                    </svg>
+                    Go to Earnings
+                </a>
+            </div>
+        </section>
+        <section class="mb-8 md:border md:border-slate-600 md:rounded-lg md:px-4 md:py-8 md:shadow-lg">
+            <h2 class="text-4xl font-medium uppercase">Overview</h2>
+            <p class="mb-4">Here's a quick glance at how your shop is doing today.</p>
+            <section class="flex flex-col gap-4">
+                <h3 class="text-xl font-medium">Key Metrics</h3>
+                <div class="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+                    <section class="w-full border border-l-8 border-green-600 px-4 py-4 rounded shadow-lg sm:w-[calc(50%-0.5rem)] xl:w-[calc(33%-0.66rem)]">
+                        <h4 class="font-bold mb-4">Sales This Month</h4>
+                        <p class="text-4xl font-black">$2,450 CAD</p>
+                        <p class="text-green-600 italic font-bold">+12% from last month</p>
+                    </section>
+                    <section class="w-full border border-l-8 border-amber-600 px-4 py-4 rounded shadow-lg sm:w-[calc(50%-0.5rem)] xl:w-[calc(33%-0.66rem)]">
+                        <h4 class="font-bold mb-4">Orders Pending</h4>
+                        <p class="text-4xl font-black">4 orders</p>
+                        <p class="text-amber-600 italic font-bold">awaiting fullfillment</p>
+                    </section>
+                    <section class="w-full border border-l-8 border-slate-600 px-4 py-4 rounded shadow-lg sm:w-[calc(50%-0.5rem)] xl:w-[calc(33%-0.66rem)]">
+                        <h4 class="font-bold mb-4">Shipped Orders</h4>
+                        <p class="text-4xl font-black">8 orders</p>
+                        <p class="italic font-bold">shipped</p>
+                    </section>
+                    <section class="w-full border border-l-8 border-slate-600 px-4 py-4 rounded shadow-lg sm:w-[calc(50%-0.5rem)] xl:w-[calc(33%-0.66rem)]">
+                        <h4 class="font-bold mb-4">Shop Visits Today</h4>
+                        <p class="text-4xl font-black">162</p>
+                        <p class="italic font-bold">visitors</p>
+                    </section>
+                    <section class="w-full border border-l-8 border-rose-700 px-4 py-4 rounded shadow-lg xl:w-[calc(66%-0.33rem)]">
+                        <h4 class="font-bold mb-4">Low-Stock Alerts</h4>
+                        <ul>
+                            <li class="font-bold">Terracotta Planter - <span class="text-rose-700 font-black">only 2 left</span></li>
+                            <li class="font-bold">Wheel-Thrown Trinket Bowl - <span class="text-rose-700 font-black">only 1 left</span></li>
+                        </ul>
+                    </section>
+                </div>
+            </section>
+        </section>
+        <section class="mb-8 md:border md:border-slate-600 md:rounded-lg md:px-4 md:py-8 md:shadow-lg">
+            <h2 class="text-4xl font-medium mb-4 uppercase">Unread Messages</h2>
+            <div class="flex flex-col gap-4 xl:flex-row xl:flex-wrap">
+                <article class="flex flex-col justify-between w-full border border-l-8 border-slate-600 px-4 py-4 rounded shadow-lg xl:w-[calc(50%-0.5rem)] 2xl:w-[calc(33%-0.66rem)]">
+                    <h3 class="text-xl mb-2"><span class="font-bold">Subject:</span> Glaze Food-Safety Question</h3>
+                    <p class="italic"><span class="font-bold">From:</span> Dana Stone</p>
+                    <p class="italic mb-2"><span class="font-bold">Date:</span> October 19, 2025</p>
+                    <p>Hi Clayton, I purchased your Reactive Glaze Dinner Plate last month and was wondering if it's certified food-safe for daily use. I want to make sure it won't leach any chemicals when I eat off it.</p>
+                    <div class="mt-8 flex flex-wrap justify-end gap-4">
+                        <button class="flex gap-1 bg-slate-600 text-slate-50 px-4 py-2 rounded-lg cursor-pointer focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-lime-500 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-50 hover:bg-slate-900">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="prefix__size-6 w-4">
+                                <title>Reply Icon</title>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"/>
+                            </svg>
+                            Reply
+                        </button>
+                        <button class="flex gap-1 bg-slate-600 text-slate-50 px-4 py-2 rounded-lg cursor-pointer focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-lime-500 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-50 hover:bg-slate-900">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="prefix__size-6 w-4">
+                                <title>Check Icon</title>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/>
+                            </svg>
+                            Mark as Read
+                        </button>
+                        <button class="flex gap-1 bg-rose-700 text-rose-50 px-4 py-2 rounded-lg cursor-pointer focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-lime-500 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-50 hover:bg-rose-900">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="prefix__size-6 w-4">
+                                <title>Delete Icon</title>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.35 9m-4.78 0-.35-9m9.97-3.21q.51.07 1.02.17m-1.02-.17-1.07 13.88a2.25 2.25 0 0 1-2.24 2.08H8.08a2.25 2.25 0 0 1-2.24-2.08L4.77 5.8m14.46 0a48 48 0 0 0-3.48-.4m-12 .56 1.02-.16m0 0a48 48 0 0 1 3.48-.4m7.5 0v-.91c0-1.18-.91-2.17-2.09-2.2a52 52 0 0 0-3.32 0 2.2 2.2 0 0 0-2.09 2.2v.91m7.5 0a49 49 0 0 0-7.5 0"/>
+                            </svg>
+                            Delete
+                        </button>
+                    </div>
+                </article>
+                <article class="flex flex-col justify-between w-full border border-l-8 border-slate-600 px-4 py-4 rounded shadow-lg xl:w-[calc(50%-0.5rem)] 2xl:w-[calc(33%-0.66rem)]">
+                    <h3 class="text-xl mb-2"><span class="font-bold">Subject:</span> Custom Initials on Mugs</h3>
+                    <p class="italic"><span class="font-bold">From:</span> Lee Parker</p>
+                    <p class="italic mb-2"><span class="font-bold">Date:</span> October 20, 2025</p>
+                    <p>Hello Clayton, I'd love to order four of your hand-glazed mugs with my initials “L.P.” stamped on the base. Is that something you can accommodate, and how much extra would it cost?</p>
+                    <div class="mt-8 flex flex-wrap justify-end gap-4">
+                        <button class="flex gap-1 bg-slate-600 text-slate-50 px-4 py-2 rounded-lg cursor-pointer focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-lime-500 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-50 hover:bg-slate-900">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="prefix__size-6 w-4">
+                                <title>Reply Icon</title>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"/>
+                            </svg>
+                            Reply
+                        </button>
+                        <button class="flex gap-1 bg-slate-600 text-slate-50 px-4 py-2 rounded-lg cursor-pointer focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-lime-500 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-50 hover:bg-slate-900">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="prefix__size-6 w-4">
+                                <title>Check Icon</title>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/>
+                            </svg>
+                            Mark as Read
+                        </button>
+                        <button class="flex gap-1 bg-rose-700 text-rose-50 px-4 py-2 rounded-lg cursor-pointer focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-lime-500 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-50 hover:bg-rose-900">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="prefix__size-6 w-4">
+                                <title>Delete Icon</title>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.35 9m-4.78 0-.35-9m9.97-3.21q.51.07 1.02.17m-1.02-.17-1.07 13.88a2.25 2.25 0 0 1-2.24 2.08H8.08a2.25 2.25 0 0 1-2.24-2.08L4.77 5.8m14.46 0a48 48 0 0 0-3.48-.4m-12 .56 1.02-.16m0 0a48 48 0 0 1 3.48-.4m7.5 0v-.91c0-1.18-.91-2.17-2.09-2.2a52 52 0 0 0-3.32 0 2.2 2.2 0 0 0-2.09 2.2v.91m7.5 0a49 49 0 0 0-7.5 0"/>
+                            </svg>
+                            Delete
+                        </button>
+                    </div>
+                </article>
+                <article class="flex flex-col justify-between w-full border border-l-8 border-slate-600 px-4 py-4 rounded shadow-lg xl:w-[calc(50%-0.5rem)] 2xl:w-[calc(33%-0.66rem)]">
+                    <h3 class="text-xl mb-2"><span class="font-bold">Subject:</span> Shipping Timeline for Order #1021</h3>
+                    <p class="italic"><span class="font-bold">From:</span> Morgan Lee</p>
+                    <p class="italic mb-2"><span class="font-bold">Date:</span> October 22, 2025</p>
+                    <p>Good morning Clayton, I'm excited to receive the three mug I ordered (Order #1021). Could you let me know when you expect it to ship? I need it for my girlfriend's birthday next Friday.</p>
+                    <div class="mt-8 flex flex-wrap justify-end gap-4">
+                        <button class="flex gap-1 bg-slate-600 text-slate-50 px-4 py-2 rounded-lg cursor-pointer focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-lime-500 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-50 hover:bg-slate-900">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="prefix__size-6 w-4">
+                                <title>Reply Icon</title>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"/>
+                            </svg>
+                            Reply
+                        </button>
+                        <button class="flex gap-1 bg-slate-600 text-slate-50 px-4 py-2 rounded-lg cursor-pointer focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-lime-500 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-50 hover:bg-slate-900">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="prefix__size-6 w-4">
+                                <title>Check Icon</title>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/>
+                            </svg>
+                            Mark as Read
+                        </button>
+                        <button class="flex gap-1 bg-rose-700 text-rose-50 px-4 py-2 rounded-lg cursor-pointer focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-lime-500 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-50 hover:bg-rose-900">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="prefix__size-6 w-4">
+                                <title>Delete Icon</title>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.35 9m-4.78 0-.35-9m9.97-3.21q.51.07 1.02.17m-1.02-.17-1.07 13.88a2.25 2.25 0 0 1-2.24 2.08H8.08a2.25 2.25 0 0 1-2.24-2.08L4.77 5.8m14.46 0a48 48 0 0 0-3.48-.4m-12 .56 1.02-.16m0 0a48 48 0 0 1 3.48-.4m7.5 0v-.91c0-1.18-.91-2.17-2.09-2.2a52 52 0 0 0-3.32 0 2.2 2.2 0 0 0-2.09 2.2v.91m7.5 0a49 49 0 0 0-7.5 0"/>
+                            </svg>
+                            Delete
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section class="flex flex-col md:border md:border-slate-600 md:rounded-lg md:px-4 md:py-8 md:shadow-lg">
+            <h2 class="text-4xl font-medium mb-4 uppercase">Recent Orders</h2>
+            <ol class="flex flex-col gap-4 mb-4 sm:flex-row sm:flex-wrap">
+                <li class="w-full border border-l-8 border-amber-600 rounded shadow-lg sm:w-[calc(50%-0.5rem)] xl:w-[calc(33%-0.66rem)]">
+                    <!-- Using outline for focus-visible instead of ring to preserve the card's original border design on the li element. Applying ring would overlap or hide the existing border style. -->
+                    <a class="block px-4 py-4 hover:bg-slate-100 focus-visible:outline-4 focus-visible:outline-lime-500 focus-visible:outline-offset-8 rounded" href="#">
+                        <h3 class="text-xl mb-2 font-bold">Order #1023</h3>
+                        <ul>
+                            <li>4 x Porcelain Serving Bowls</li>
+                            <li class="italic">Status: <span class="text-amber-600  font-bold">Processing</span></li>
+                        </ul>
+                    </a>
+                </li>
+                <li class="w-full border border-l-8 border-blue-600 rounded shadow-lg sm:w-[calc(50%-0.5rem)] xl:w-[calc(33%-0.66rem)]">
+                    <a class="block px-4 py-4 hover:bg-slate-100 focus-visible:outline-4 focus-visible:outline-lime-500 focus-visible:outline-offset-8 rounded" href="#">
+                        <h3 class="text-xl mb-2 font-bold">Order #1022</h3>
+                        <ul>
+                            <li>1 x Hand-glazed Teapot</li>
+                            <li class="italic">Status: <span class="text-blue-600 font-bold">Shipped</span></li>
+                        </ul>
+                    </a>
+                </li>
+                <li class="w-full border border-l-8 border-green-600 rounded shadow-lg sm:w-[calc(50%-0.5rem)] xl:w-[calc(33%-0.66rem)]">
+                    <a class="block px-4 py-4 hover:bg-slate-100 focus-visible:outline-4 focus-visible:outline-lime-500 focus-visible:outline-offset-8 rounded" href="#">
+                        <h3 class="text-xl mb-2 font-bold">Order #1021</h3>
+                        <ul>
+                            <li>2 x Handcrafted Ceramic Mug</li>
+                            <li class="italic">Status: <span class="text-green-600 font-bold">Delivered</span></li>
+                        </ul>
+                    </a>
+                </li>
+            </ol>
+            <a class="font-bold self-end text-xl flex items-center gap-2 underline underline-offset-4 decoration-slate-400 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-lime-500 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-50 rounded hover:text-slate-500" href="#">
+                View All Orders
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="prefix__size-6 w-8">
+                    <title>Right Arrow Icon</title>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0"/>
+                </svg>
+            </a>
+        </section>
+        <section class="flex flex-col md:border md:border-slate-600 md:rounded-lg md:px-4 md:py-8 md:shadow-lg">
+            <h2 class="text-4xl font-medium mb-4 uppercase">Top Selling Items</h2>
+            <ol class="flex flex-col gap-4 mb-4 sm:flex-row sm:flex-wrap">
+                <li class="w-full border border-l-8 border-slate-600 px-4 py-4 rounded shadow-lg sm:w-[calc(50%-0.5rem)] xl:w-[calc(33%-0.66rem)]"><a class="font-bold cursor-pointer hover:underline underline-offset-4">Handcrafted Ceramic Mug</a> - 35 units sold</li>
+                <li class="w-full border border-l-8 border-slate-600 px-4 py-4 rounded shadow-lg sm:w-[calc(50%-0.5rem)] xl:w-[calc(33%-0.66rem)]"><a class="font-bold cursor-pointer hover:underline underline-offset-4">Reactive Glaze Dinner Plate</a> - 27 units sold</li>
+                <li class="w-full border border-l-8 border-slate-600 px-4 py-4 rounded shadow-lg sm:w-[calc(50%-0.5rem)] xl:w-[calc(33%-0.66rem)]"><a class="font-bold cursor-pointer hover:underline underline-offset-4">Knitted Scarf</a> - 19 units sold</li>
+            </ol>
+            <a class="font-bold self-end text-xl flex items-center gap-2 underline underline-offset-4 decoration-slate-400 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-lime-500 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-50 rounded hover:text-slate-500" href="#">
+                View All Listings
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="prefix__size-6 w-8">
+                    <title>Right Arrow Icon</title>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0"/>
+                </svg>
+            </a>
+        </section>
+    </main>
+</body>
+</html>
